@@ -67,4 +67,5 @@ This file can be runned. It executes unit tests on given functional requirements
 ## TODO ##
 
 Add some logs.
+
 Raise exceptions on invalid received datas.
