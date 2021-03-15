@@ -1,10 +1,10 @@
 from classes import Path
 from classes import Step
-from typing import Tuple
+from typing import Tuple, List
 
 
-def get_steps(height: int, lines: [str], number_of_paths: int) -> [Step]:
-    steps = []
+def get_steps(height: int, lines: List[str], number_of_paths: int) -> List[Step]:
+    steps: List[Step] = []
     for i in range(2, height):
         steps.append(Step(lines[i], number_of_paths))
     return steps
@@ -32,8 +32,8 @@ def check_line(line: str, length: int) -> None:
         raise ValueError(f'Line [{line}] does not have required values length [{length}]')
 
 
-def get_paths(height: int, lines: [str], width: int) -> [Path]:
-    paths = []
+def get_paths(height: int, lines: List[str], width: int) -> List[Path]:
+    paths: List[Path] = []
     # standard format implies width % 3 == 1
     number_of_paths = int(1 + (width - 1) / 3)
     # removing spaces to work on values ranks

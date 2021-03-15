@@ -17,15 +17,10 @@ class Step:
             if line[i*3+1] == line[i*3+2] == '-':
                 self.bridges.append(Bridge(i, i+1))
 
-    def has_bridge_for_path(self, path_name: str) -> bool:
+    def get_next_path(self, path_rank: int) -> int:
         for bridge in self.bridges:
-            if bridge.left == path_name or bridge.right == path_name:
-                return True
-        return False
-
-    def get_next_path(self, path_name: str) -> int:
-        for bridge in self.bridges:
-            if bridge.left == path_name:
+            if bridge.left == path_rank:
                 return bridge.right
-            elif bridge.right == path_name:
+            if bridge.right == path_rank:
                 return bridge.left
+        return path_rank

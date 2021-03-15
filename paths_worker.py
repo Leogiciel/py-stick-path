@@ -1,7 +1,9 @@
+from classes import Path, Step
+from typing import List
 import paths_parser
 
 
-def compute_paths(args):
+def compute_paths(args: str) -> str:
     # check argument type
     if type(args) is not str:
         raise ValueError(f'Argument must be a string, not {type(args)}')
@@ -20,7 +22,7 @@ def compute_paths(args):
     return result
 
 
-def compute_path(paths, steps, i):
+def compute_path(paths: List[Path], steps: List[Step], i: int) -> str:
     # default path if no bridge
     result = [paths[i].top_value, paths[i].bottom_value]
     actual_path = i
@@ -28,10 +30,7 @@ def compute_path(paths, steps, i):
     # for each step
     for j in range(len(steps)):
         step = steps[j]
-        # if we meet a matching bridge...
-        if step.has_bridge_for_path(actual_path):
-            # ...we follow it
-            actual_path = actual_end_path = step.get_next_path(actual_path)
+        actual_path = actual_end_path = step.get_next_path(actual_path)
     # update final result
     result[1] = paths[actual_end_path].bottom_value
     return f'{result[0]}{result[1]}\n'
