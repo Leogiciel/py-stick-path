@@ -1,7 +1,7 @@
 class Path:
     def __init__(self, start, end):
-        self.start_name = start
-        self.end_name = end
+        self.top_value = start
+        self.bottom_value = end
 
 
 class Bridge:

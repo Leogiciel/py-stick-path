@@ -2,10 +2,15 @@ import paths_parser
 
 
 def compute_paths(args):
+    # check argument type
+    if type(args) is not str:
+        raise ValueError(f'Argument must be a string, not {type(args)}')
     lines = args.splitlines()
+    if len(lines) < 4:
+        raise ValueError(f'Argument must contains at least 4 lines : [{args}] contains only [{len(lines)}] lines')
     # extract array dimensions
     height, width = paths_parser.get_dimensions(lines[0])
-    # build paths array (start name and end value)
+    # build paths array (top and bottom values)
     paths = paths_parser.get_paths(height, lines, width)
     # build steps array (steps will contain bridges)
     steps = paths_parser.get_steps(height, lines, len(paths))
@@ -17,7 +22,7 @@ def compute_paths(args):
 
 def compute_path(paths, steps, i):
     # default path if no bridge
-    result = [paths[i].start_name, paths[i].end_name]
+    result = [paths[i].top_value, paths[i].bottom_value]
     actual_path = i
     actual_end_path = i
     # for each step
@@ -28,6 +33,6 @@ def compute_path(paths, steps, i):
             # ...we follow it
             actual_path = actual_end_path = step.get_next_path(actual_path)
     # update final result
-    result[1] = paths[actual_end_path].end_name
+    result[1] = paths[actual_end_path].bottom_value
     return f'{result[0]}{result[1]}\n'
 
