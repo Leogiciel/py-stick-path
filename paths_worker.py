@@ -6,10 +6,13 @@ import paths_parser
 def compute_paths(args: str) -> str:
     # check argument type
     if type(args) is not str:
-        raise ValueError(f'Argument must be a string, not {type(args)}')
+        raise ValueError(f"Argument must be a string, not {type(args)}")
     lines = args.splitlines()
     if len(lines) < 4:
-        raise ValueError(f'Argument must contains at least 4 lines : [{args}] contains only [{len(lines)}] lines')
+        raise ValueError(
+            f"Argument must contains at least 4 lines :"
+            f" [{args}] contains only [{len(lines)}] lines"
+        )
     # extract array dimensions
     height, width = paths_parser.get_dimensions(lines[0])
     # build paths array (top and bottom values)
@@ -33,5 +36,4 @@ def compute_path(paths: List[Path], steps: List[Step], i: int) -> str:
         actual_path = actual_end_path = step.get_next_path(actual_path)
     # update final result
     result[1] = paths[actual_end_path].bottom_value
-    return f'{result[0]}{result[1]}\n'
-
+    return f"{result[0]}{result[1]}\n"

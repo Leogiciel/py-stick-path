@@ -12,5 +12,9 @@
         "main.py"
     ],
     "python.testing.unittestEnabled": true,
-    "python.linting.mypyEnabled": true
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pycodestyleEnabled": true,
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black"
 }
