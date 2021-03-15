@@ -1,9 +1,11 @@
-from classes import Path, Step
 from typing import List, Tuple
 
+from classes import Path, Step
 
-def get_steps(height: int, lines: List[str],
-              number_of_paths: int) -> List[Step]:
+
+def get_steps(
+    height: int, lines: List[str], number_of_paths: int
+) -> List[Step]:
     steps: List[Step] = []
     for i in range(2, height):
         steps.append(Step(lines[i], number_of_paths))

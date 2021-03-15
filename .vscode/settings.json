@@ -16,5 +16,13 @@
     "python.linting.flake8Enabled": true,
     "python.linting.pycodestyleEnabled": true,
     "editor.formatOnSave": true,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=79"
+    ],
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    }
 }

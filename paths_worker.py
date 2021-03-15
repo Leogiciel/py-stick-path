@@ -1,6 +1,7 @@
-from classes import Path, Step
 from typing import List
+
 import paths_parser
+from classes import Path, Step
 
 
 def compute_paths(args: str) -> str:
