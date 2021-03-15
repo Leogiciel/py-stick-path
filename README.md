@@ -62,7 +62,7 @@ W1
 
 ### main.py ###
 
-This file can be runned. It executes unit tests on given functional requirements.
+This file can be run. It executes unit tests on given functional requirements.
 
 ## TODO ##
 

@@ -1,18 +1,20 @@
 from classes import Path
 from classes import Step
+from typing import Tuple
 
 
-def get_steps(height, lines, number_of_paths):
+def get_steps(height: int, lines: [str], number_of_paths: int) -> [Step]:
     steps = []
     for i in range(2, height):
         steps.append(Step(lines[i], number_of_paths))
     return steps
 
 
-def get_dimensions(line):
+def get_dimensions(line: str) -> Tuple[int, int]:
     parsed_line = line.strip().split(' ')
     if len(parsed_line) != 2:
-        raise ValueError(f'Dimensions line must contain 2 elements, dimension line received : [{line}] returned [{len(parsed_line)}] elements')
+        raise ValueError(f'Dimensions line must contain 2 elements, '
+                         f'dimension line received : [{line}] returned [{len(parsed_line)}] elements')
     try:
         width = int(parsed_line[0])
         height = int(parsed_line[1])
@@ -25,12 +27,12 @@ def get_dimensions(line):
     return height, width
 
 
-def check_line(line, length):
+def check_line(line: str, length: int) -> None:
     if len(line) != length:
-        raise ValueError(f'Line [{line}] doesn\'t have required values length [{length}]')
+        raise ValueError(f'Line [{line}] does not have required values length [{length}]')
 
 
-def get_paths(height, lines, width):
+def get_paths(height: int, lines: [str], width: int) -> [Path]:
     paths = []
     # standard format implies width % 3 == 1
     number_of_paths = int(1 + (width - 1) / 3)
