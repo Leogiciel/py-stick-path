@@ -3,9 +3,7 @@ from typing import List, Tuple
 from classes import Path, Step
 
 
-def get_steps(
-    height: int, lines: List[str], number_of_paths: int
-) -> List[Step]:
+def get_steps(height: int, lines: List[str], number_of_paths: int) -> List[Step]:
     steps: List[Step] = []
     for i in range(2, height):
         steps.append(Step(lines[i], number_of_paths))
@@ -27,12 +25,11 @@ def get_dimensions(line: str) -> Tuple[int, int]:
         raise ValueError(f"A dimension is not valid : {ve}")
     if width < 4:
         raise ValueError(
-            f"Invalid value received for width :"
-            f" received [{width}], must be over 3"
+            f"Invalid value received for width : received [{width}], must be over 3"
         )
     if height < 1 or height > 100:
         raise ValueError(
-            f"Invalid value received for height : received"
+            f"Invalid value received for height : received "
             f"[{height}], must be between 1 and 100"
         )
     return height, width
@@ -41,8 +38,7 @@ def get_dimensions(line: str) -> Tuple[int, int]:
 def check_line(line: str, length: int) -> None:
     if len(line) != length:
         raise ValueError(
-            f"Line [{line}] does not have "
-            f"required values length [{length}]"
+            f"Line [{line}] does not have required values length [{length}]"
         )
 
 
