@@ -1,6 +1,7 @@
 # py-stick-path #
 
 [![Lint Code Base](https://github.com/Leogiciel/py-stick-path/actions/workflows/linter.yml/badge.svg?branch=dev)](https://github.com/Leogiciel/py-stick-path/actions/workflows/linter.yml)
+[![Unit tests](https://github.com/Leogiciel/py-stick-path/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/Leogiciel/py-stick-path/actions/workflows/ci.yml)
 
 ## Description ##
 
