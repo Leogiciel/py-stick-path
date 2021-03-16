@@ -20,9 +20,7 @@ def compute_paths(args: str) -> str:
     paths = paths_parser.get_paths(height, lines, width)
     # build steps array (steps will contain bridges)
     steps = paths_parser.get_steps(height, lines, len(paths))
-    result = ""
-    for i in range(len(paths)):
-        result += compute_path(paths, steps, i)
+    result = "\n".join([compute_path(paths, steps, i) for i in range(len(paths))])
     return result
 
 
@@ -37,4 +35,4 @@ def compute_path(paths: List[Path], steps: List[Step], i: int) -> str:
         actual_path = actual_end_path = step.get_next_path(actual_path)
     # update final result
     result[1] = paths[actual_end_path].bottom_value
-    return f"{result[0]}{result[1]}\n"
+    return f"{result[0]}{result[1]}"

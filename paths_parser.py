@@ -4,9 +4,7 @@ from classes import Path, Step
 
 
 def get_steps(height: int, lines: List[str], number_of_paths: int) -> List[Step]:
-    steps: List[Step] = []
-    for i in range(2, height):
-        steps.append(Step(lines[i], number_of_paths))
+    steps: List[Step] = [Step(lines[i], number_of_paths) for i in range(2, height)]
     return steps
 
 
@@ -51,6 +49,7 @@ def get_paths(height: int, lines: List[str], width: int) -> List[Path]:
     bottom_values_line = lines[height].replace(" ", "")
     check_line(top_values_line, number_of_paths)
     check_line(bottom_values_line, number_of_paths)
-    for i in range(number_of_paths):
-        paths.append(Path(top_values_line[i], bottom_values_line[i]))
+    paths = [
+        Path(top_values_line[i], bottom_values_line[i]) for i in range(number_of_paths)
+    ]
     return paths
