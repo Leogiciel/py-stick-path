@@ -1,5 +1,8 @@
 # py-stick-path #
 
+[![Lint Code Base](https://github.com/Leogiciel/py-stick-path/actions/workflows/linter.yml/badge.svg?branch=dev)](https://github.com/Leogiciel/py-stick-path/actions/workflows/linter.yml)
+[![Unit tests](https://github.com/Leogiciel/py-stick-path/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/Leogiciel/py-stick-path/actions/workflows/ci.yml)
+
 ## Description ##
 
 Receives arrays of stick paths and returns all solutions considering all paths must turn everytime it's possible.
@@ -7,7 +10,7 @@ Receives arrays of stick paths and returns all solutions considering all paths m
 *Example :*
 
 **Input**
-````
+````lang-txt
 7 7
 A  B  C 
 |  |  | 
@@ -19,7 +22,7 @@ A  B  C
 ````
 
 **Output**
-````
+````lang-txt
 A2 
 B1 
 C3 
@@ -30,7 +33,7 @@ C3
 ### Calling script ###
 
 A simple script "paths_script.py" can be called in a console :
-````
+````lang-txt
 C:\Users\Leogiciel\Peacock\py-stick-path> python paths_script.py '22 18
 >> P  Q  R  S  T  U  V  W
 >> |  |  |  |  |--|  |  |
@@ -62,7 +65,7 @@ W1
 
 ### main.py ###
 
-This file can be runned. It executes unit tests on given functional requirements.
+This file can be run. It executes unit tests on given functional requirements.
 
 ## TODO ##
 

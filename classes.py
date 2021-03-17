@@ -1,31 +1,27 @@
 class Path:
-    def __init__(self, start, end):
-        self.start_name = start
-        self.end_name = end
+    def __init__(self, start: str, end: str):
+        self.top_value: str = start
+        self.bottom_value: str = end
 
 
 class Bridge:
-    def __init__(self, left, right):
-        self.left = left
-        self.right = right
+    def __init__(self, left: int, right: int):
+        self.left: int = left
+        self.right: int = right
 
 
 class Step:
-    def __init__(self, line, number_of_paths):
-        self.bridges = []
-        for i in range(number_of_paths-1):
-            if line[i*3+1] == line[i*3+2] == '-':
-                self.bridges.append(Bridge(i, i+1))
+    def __init__(self, line: str, number_of_paths: int):
+        self.bridges: list[Bridge] = [
+            Bridge(i, i + 1)
+            for i in range(number_of_paths - 1)
+            if line[i * 3 + 1] == line[i * 3 + 2] == "-"
+        ]
 
-    def has_bridge_for_path(self, path):
+    def get_next_path(self, path_rank: int) -> int:
         for bridge in self.bridges:
-            if bridge.left == path or bridge.right == path:
-                return True
-        return False
-
-    def get_next_path(self, path):
-        for bridge in self.bridges:
-            if bridge.left == path:
+            if bridge.left == path_rank:
                 return bridge.right
-            elif bridge.right == path:
+            if bridge.right == path_rank:
                 return bridge.left
+        return path_rank
